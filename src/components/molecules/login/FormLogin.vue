@@ -1,3 +1,9 @@
+<script setup lang="ts">
+    import { registerStore } from '../../../stores/documentType'
+    const storeDocument = registerStore();
+</script>
+
+
 <template>
   <form class="flex flex-col gap-y-10 w-1/2">
     <!-- Username -->
@@ -13,17 +19,20 @@
     </div>
     <div class="flex justify-center space-x-5">
       <button
-        type="submit"
-        class="font-bold rounded border-b-2 text-red bg-purple border-red hover:border-purple hover:bg-red shadow-md py-2 px-6"
+        @click="storeDocument.queryDocumentAndRol"
+        class="font-bold rounded border-b-2 text-red bg-purple border-red hover:border-purple hover:bg-blue shadow-md py-2 px-6"
       >
         <span class="mr-2">Registrarse</span>
       </button>
-      <button
-        type="submit"
-        class="font-bold rounded border-b-2 text-red bg-purple border-red hover:border-purple hover:bg-red shadow-md py-2 px-6"
-      >
-        <span class="mr-2">Ingresar</span>
-      </button>
+
+      <router-link to="/home">
+        <button
+          type="submit"
+          class="font-bold rounded border-b-2 text-red bg-purple border-red hover:border-purple hover:bg-blue shadow-md py-2 px-6"
+        >
+          <span class="mr-2">Ingresar</span>
+        </button>
+      </router-link>
     </div>
   </form>
 </template>

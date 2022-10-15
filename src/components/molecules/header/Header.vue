@@ -1,6 +1,6 @@
 <script setup lang="ts">
-    import digiworldIcon from "../login/digiworldIcon.vue";
-    import userOption from "./userOption.vue"
+    import digiworldIcon from "../../atoms/icons/DigiWorldIcon.vue";
+    import UserOption from "./UserOption.vue"
 </script>
 
 <template>
@@ -10,7 +10,7 @@
             <span class="ml-3 text-xl text-red font-medium">ClassDIGI</span>
         </div>
         <div class="flex">
-            <userOption></userOption>
+            <UserOption></UserOption>
         </div>
     </section>
 </template>

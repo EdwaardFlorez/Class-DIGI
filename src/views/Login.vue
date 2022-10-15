@@ -1,7 +1,12 @@
 <script setup lang="ts">
 import Formlogin from "../components/molecules/login/FormLogin.vue";
+import FormRegister from "../components/molecules/login/FormRegister.vue";
 import bannerLogin from "../components/molecules/login/bannerLogin.vue";
 import DigiWorldIcon from "../components/atoms/icons/DigiWorldIcon.vue";
+
+import { registerStore } from "../stores/documentType";
+const storeDocument = registerStore();
+
 </script>
 
 <template>
@@ -12,9 +17,11 @@ import DigiWorldIcon from "../components/atoms/icons/DigiWorldIcon.vue";
         <span class="ml-3 text-2xl text-red font-medium">ClassDIGI</span>
       </section>
       <div class="flex flex-col justify-center items-center gap-y-10 h-5/6">
-        <h1 class="text-4xl font-bold text-purple">Login</h1>
+        <h1 v-if="storeDocument.registerVisible" class="text-4xl font-bold text-purple">Registrarse</h1>
+        <h1 v-else class="text-4xl font-bold text-purple">Login</h1>
         <hr class="border-4 border-red w-2/5 max-w-1" />
-        <Formlogin></Formlogin>
+        <FormRegister v-if="storeDocument.registerVisible"></FormRegister>
+        <Formlogin v-else></Formlogin>
       </div>
     </section>
     <section
